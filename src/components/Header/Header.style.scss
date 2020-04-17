@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid black;
+
+  .options {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .option {
+      margin: 0 10px;
+
+      &:hover {
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+}
