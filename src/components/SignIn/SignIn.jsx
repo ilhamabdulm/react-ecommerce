@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import './SignIn.style.scss'
-import { signInWithGogle } from '../../firebase/firebase.utils'
+import { signInWithGogle, auth } from '../../firebase/firebase.utils'
 
 import FormInput from '../FormInput/FormInput'
 import CustomButton from '../CustomButton/CustomButton'
@@ -16,12 +16,18 @@ class SignIn extends Component {
     }
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault()
-    this.setState({
-      email: '',
-      password: '',
-    })
+    const { email, password } = this.state
+    try {
+      await auth.signInWithEmailAndPassword(email, password)
+      this.setState({
+        email: '',
+        password: '',
+      })
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   handleChange = (e) => {
