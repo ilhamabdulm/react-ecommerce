@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg'
 
@@ -9,6 +9,9 @@ import './CartIcon.style.scss'
 
 const CartIcon = () => {
   const dispatch = useDispatch()
+  const itemCount = useSelector(({ cart: { cartItems } }) =>
+    cartItems.reduce((accQty, cartItem) => accQty + cartItem.quantity, 0)
+  )
 
   const handleToggle = () => {
     dispatch(toggleCartDropdown())
@@ -17,7 +20,7 @@ const CartIcon = () => {
   return (
     <div className="cart-icon" onClick={handleToggle}>
       <ShoppingIcon className="shopping-icon" />
-      <span className="item-count"></span>
+      <span className="item-count">{itemCount}</span>
     </div>
   )
 }

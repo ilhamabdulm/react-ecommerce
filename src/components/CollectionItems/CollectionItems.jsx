@@ -22,12 +22,12 @@ const CollectionItems = ({ item }) => {
       ></div>
       <div className="collection-footer">
         <span className="name">{name}</span>
-        <span className="price">{price}</span>
+        <span className="price">${price}</span>
       </div>
       <CustomButton
         className="custom-button"
-        inverted
         onClick={handleAddToCart}
+        inverted
       >
         ADD TO CART
       </CustomButton>

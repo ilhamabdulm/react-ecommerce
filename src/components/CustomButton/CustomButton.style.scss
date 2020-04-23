@@ -22,17 +22,6 @@
     border: 1px solid black;
   }
 
-  &.google-button {
-    background-color: #3a42e0;
-    color: white;
-    border: none;
-
-    &.hover {
-      background-color: #151fdb;
-      border: 1px solid black;
-    }
-  }
-
   &.inverted {
     background-color: white;
     color: black;
@@ -42,6 +31,17 @@
       background-color: black;
       color: white;
       border: none;
+    }
+  }
+
+  &.google-button {
+    background-color: #3a42e0;
+    color: white;
+    border: none;
+
+    &.hover {
+      background-color: #151fdb;
+      border: 1px solid black;
     }
   }
 }
