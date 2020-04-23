@@ -7,9 +7,11 @@ import { auth } from '../../firebase/firebase.utils'
 
 import './Header.style.scss'
 
-const Header = ({ currentUser }) => {
+import CartIcon from '../CartIcon/CartIcon'
+import CartDropdown from '../CartDropdown/CartDropdown'
+
+const Header = ({ currentUser, hidden }) => {
   const handleLogout = () => {
-    console.log('Hello')
     auth.signOut()
   }
 
@@ -34,13 +36,16 @@ const Header = ({ currentUser }) => {
             SIGN IN
           </Link>
         )}
+        <CartIcon />
       </div>
+      {hidden ? null : <CartDropdown />}
     </div>
   )
 }
 
 const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser,
+  hidden: state.cart.hidden,
 })
 
 export default connect(mapStateToProps)(Header)
