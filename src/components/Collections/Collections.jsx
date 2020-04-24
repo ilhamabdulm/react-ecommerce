@@ -3,11 +3,19 @@ import React from 'react'
 import './Collections.style.scss'
 
 import CollectionItems from '../CollectionItems/CollectionItems'
+import { withRouter } from 'react-router-dom'
 
-const Collections = ({ title, items }) => {
+const Collections = ({ title, items, history, match }) => {
+  const handleClick = () => {
+    history.push(`${match.path}/${title.toLowerCase()}`)
+    window.scrollTo(0, 0)
+  }
+
   return (
     <div className="collection-preview">
-      <h3 className="title">{title.toUpperCase()}</h3>
+      <h3 className="title" onClick={handleClick}>
+        {title.toUpperCase()}
+      </h3>
       <div className="preview">
         {items
           .filter((_item, idx) => idx < 4)
@@ -19,4 +27,4 @@ const Collections = ({ title, items }) => {
   )
 }
 
-export default Collections
+export default withRouter(Collections)

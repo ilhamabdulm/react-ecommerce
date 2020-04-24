@@ -28,6 +28,11 @@
 
     .arrow {
       cursor: pointer;
+
+      &.disabled {
+        color: darkgrey;
+        cursor: not-allowed;
+      }
     }
 
     .value {

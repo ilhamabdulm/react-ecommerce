@@ -20,7 +20,10 @@ const CheckoutItem = ({ cartItem }) => {
       </div>
       <span className="name">{name}</span>
       <span className="quantity">
-        <div className="arrow" onClick={() => dispatch(removeItem(cartItem))}>
+        <div
+          className={`${quantity === 1 && 'disabled'} arrow`}
+          onClick={() => (quantity > 1 ? dispatch(removeItem(cartItem)) : null)}
+        >
           &#10094;
         </div>{' '}
         <span className="value">{quantity}</span>
