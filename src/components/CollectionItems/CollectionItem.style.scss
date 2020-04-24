@@ -1,5 +1,5 @@
 .collection-item {
-  width: 20%;
+  width: 20vw;
   display: flex;
   flex-direction: column;
   height: 380px;
@@ -46,12 +46,12 @@
   }
 
   .collection-footer {
-    width: 90%;
+    width: 100%;
     height: 5%;
     display: flex;
     justify-content: space-between;
     font-size: 20px;
-    padding: 0 10px;
+    padding: 0 15px;
     margin: 25px 10px;
 
     .name {
