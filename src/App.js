@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage/HomePage'
 import ShopPage from './pages/ShopPage/ShopPage'
 import Header from './components/Header/Header'
 import AuthPage from './pages/AuthPage/AuthPage'
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage'
 
 class App extends Component {
   unsubscribeAuth = null
@@ -49,6 +50,7 @@ class App extends Component {
               this.props.currentUser ? <Redirect to="/" /> : <AuthPage />
             }
           />
+          <Route exact path="/checkout" component={CheckoutPage} />
         </Switch>
       </>
     )
