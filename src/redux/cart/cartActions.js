@@ -3,6 +3,7 @@ import {
   ADD_TO_CART,
   CLEAR_ITEM,
   REMOVE_ITEM,
+  CLEAR_CART,
 } from '../actionTypes'
 
 export const toggleCartDropdown = () => {
@@ -35,5 +36,11 @@ export const removeItem = (item) => {
     payload: {
       item,
     },
+  }
+}
+
+export const clearCart = () => {
+  return {
+    type: CLEAR_CART,
   }
 }

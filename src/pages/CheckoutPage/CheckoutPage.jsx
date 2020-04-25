@@ -9,6 +9,7 @@ import {
   selectCartItems,
   selectCartTotal,
 } from '../../redux/cart/cartSelectors'
+import StripeButton from '../../components/StripeButton/StripeButton'
 
 const CheckoutPage = () => {
   const cartItems = useSelector(selectCartItems)
@@ -40,7 +41,14 @@ const CheckoutPage = () => {
       ) : (
         <span className="empty-message">You dont have any items</span>
       )}
-      <div className="total">TOTAL: ${cartTotal}</div>
+      <div className="footer">
+        <div className="total">TOTAL: ${cartTotal}</div>
+        <div className="stripe">
+          <StripeButton price={cartTotal} />
+        </div>
+        <span>You can use this fake credit card to TEST</span>
+        <span>4242 - 4242 - 4242 - 4242 | 12 / 20 | CVV : 123</span>
+      </div>
     </div>
   )
 }
